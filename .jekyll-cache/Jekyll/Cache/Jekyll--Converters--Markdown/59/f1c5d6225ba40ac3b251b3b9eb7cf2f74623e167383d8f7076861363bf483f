@@ -1,0 +1,18 @@
+I"Q<h1 id="cam">CAM</h1>
+<ul>
+  <li><strong>paper</strong> : Zhou, Bolei, et al. Learning Deep Features for Discriminative Localization, CVPR, 2016</li>
+  <li><strong>Proposition</strong>
+    <ul>
+      <li>Weakly-supervised object localization</li>
+      <li>classification task를 수행하여 네트우크를 학습시킨 후, class score가 높게 나오도록 만든 features를 통해서 CAM (Class Activation Map)을
+생</li>
+    </ul>
+  </li>
+  <li><strong>Method</strong>:
+<img src="/assets/imgs/cam.png" alt="" />
+    <ul>
+      <li>위 그림에서 Austra</li>
+    </ul>
+  </li>
+</ul>
+:ET

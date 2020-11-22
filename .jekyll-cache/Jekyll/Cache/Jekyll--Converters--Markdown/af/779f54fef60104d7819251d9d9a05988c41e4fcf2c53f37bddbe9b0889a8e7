@@ -1,0 +1,21 @@
+I"<h1 id="cam">CAM</h1>
+
+<p><strong>1. paper</strong> : Zhou, Bolei, et al. Learning Deep Features for Discriminative Localization, CVPR, 2016
+<strong>2. Proposition</strong></p>
+<ul>
+  <li>Weakly-supervised object localization</li>
+  <li>classification task를 수행하여 네트우크를 학습시킨 후, class score가 높게 나오도록 만든 features를 통해서 CAM (Class Activation Map)을
+  생성
+<strong>3. Method</strong>
+<img src="/assets/imgs/cam.png" alt="" /></li>
+  <li>위 그림처럼 네트워크가 “conv - GAP - classifier”인 경우에 해당 score가 나오도록 기여한 weights와 features의 관계를 알 수 있음</li>
+  <li>GAP는 $F^k = \Sigma_{x,y} f_k(x,y)$로 표현할 수 있고, 해당 class의 socre는 
+$S_c = \underset{k}\Sigma w_k^c \underset{x,y}\Sigma f_k(x,y)$로 표현</li>
+  <li>논문에서 위 식으로부터 CAM을 $M_c (x,y) = \underset{k}\Sigma w_k^c f_k(x,y)$로 유도</li>
+</ul>
+
+<p><strong>4. limitation</strong>:</p>
+<ul>
+  <li>네트워크 구조의 제한</li>
+</ul>
+:ET

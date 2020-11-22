@@ -1,0 +1,20 @@
+I"g<h1 id="cam">CAM</h1>
+<ul>
+  <li><strong>paper</strong> : Zhou, Bolei, et al. Learning Deep Features for Discriminative Localization, CVPR, 2016</li>
+  <li><strong>Proposition</strong>
+    <ul>
+      <li>Weakly-supervised object localization</li>
+      <li>classification task를 수행하여 네트우크를 학습시킨 후, class score가 높게 나온 weight를</li>
+    </ul>
+  </li>
+  <li><strong>Method</strong>:
+    <ul>
+      <li></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="아직-조금-어려운-면이-있네요">아직 조금 어려운 면이 있네요.</h2>
+
+<h2 id="적응하겠죠">적응하겠죠?</h2>
+:ET

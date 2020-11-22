@@ -1,0 +1,455 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>CAM, GRAD-CAM - SouthHW Blog</title>
+<meta name="description" content="CAM">
+
+
+  <meta name="author" content="Nam Hyeon Woo">
+  
+  <meta property="article:author" content="Nam Hyeon Woo">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="SouthHW Blog">
+<meta property="og:title" content="CAM, GRAD-CAM">
+<meta property="og:url" content="http://localhost:4000/review%20of%20paper/paper-review-cam/">
+
+
+  <meta property="og:description" content="CAM">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-11-22T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/review%20of%20paper/paper-review-cam/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Nam Hyeon-Woo",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="SouthHW Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          SouthHW Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Nam Hyeon Woo</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Deep Learning, Machine Learning, Computer Vision</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:hyeonw.nam@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://south-hw.github.io/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/South-hw" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="CAM, GRAD-CAM">
+    <meta itemprop="description" content="CAM">
+    <meta itemprop="datePublished" content="2020-11-22T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">CAM, GRAD-CAM
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="cam">CAM</h2>
+
+<h5 id="paper">Paper</h5>
+<p>Zhou, Bolei, et al. “Learning Deep Features for Discriminative Localization”, CVPR, 2016</p>
+
+<h5 id="proposition">Proposition</h5>
+<p>CAM (Class Activation Map)는 weakly-supervised object localizatoin입니다. Weakly-supervised learning이란 strong supervision이 
+아닌 weak supervision으로 네트워크를 학습시키는 것입니다. Segmentation과 같은 localization의 경우 annotation 비용이 classification task에 
+비해서 더 많이 든다는 것을 직관적으로 알 수 있습니다. 이 논문에서는 classification task를 통해서 object localization할 수 있는 것을 제안합니다. 
+또한 score에 기여한 features와 weights를 이용하여 MAP을 생성하므로 Explainable AI로도 생각할 수 있습니다.</p>
+
+<h5 id="method">Method</h5>
+<p><img src="/assets/imgs/cam.png" alt="" /></p>
+
+<p>위 그림처엄 네트워크가 “conv - GAP - classifier”인 경우에 해당 score가 나오도록 기여한 weights를 알 수 있습니다. GAP, Score는 다음 식으로 표현할 수 있습니다.
+$$
+F^k = \Sigma_{x,y} f_k(x,y)
+$$
+$$
+S_c = \underset{k}\Sigma w_k^c \underset{x,y}\Sigma f_k(x,y).
+$$
+논문에서는 두 식을 합성하여 논문에서는 CAM을 다음으로 표현합니다. 
+$$
+M_c (x,y) = \underset{k}\Sigma w_k^c f_k(x,y).
+$$</p>
+
+<h2 id="grad_cam">Grad_CAM</h2>
+
+<h5 id="paper-1">Paper</h5>
+<p>Selvaraju, Ramprasaath R., et al. “Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization”, ICCV, 2017</p>
+
+<h5 id="proposition-1">Proposition</h5>
+<p>Grad-CAM은 CAM의 generalization version 입니다. CAM은 네트워크 구조가 “conv - global pooling - classifier”에만 적용할 수 있지만 Grad-CAM
+은 다양한 네트워크 구조에 적용할 수 있습니다. 그 이유는 Grad-CAM은 Loss로부터 gradient를 계산하기 때문입니다. 논문에서는 Guided Grad-CAM도 소개하지만 
+Grad-CAM만 포스팅하겠습니다.</p>
+
+<h5 id="method-1">Method</h5>
+<p>CAM에서 $w_k^c$를 importance라고 하며, socre에 기여한 features의 중요도를 나타냅니다. Grad-CAM에서는 importance를 다음과 같이 계산합니다.
+$$
+\alpha_k^c = \frac{1}{Z} \sum_{i} \sum_{j} \frac{\partial y^c}{\partial A^k_{ij}}.
+$$ 
+즉 importance는 output을 features 픽셀마다 각각 gradient를 계산한 후 x,y 좌표로 더해주는 것입니다. importance는 구하고자하는 features의 채널만큼 
+나오게 됩니다. 최종적으로 features와 importance를 곱한 후 ReLU function으로 Grad-CAM은 표현됩니다.
+$$
+L^c_{Grad-CAM} = ReLU(\sum_{k} \alpha^c_k A^k).
+$$</p>
+
+<h5 id="etc">etc</h5>
+<p>이후에 weakly object localization과 관련하여 다양한 논문이 나왔습니다. 다양한 논문에서 서로 비교하고 SOTA가 나왔겠지만, 한 논문에서는 새로운 evaluation metric을 
+제시하면서 CAM이 나온 이후로 큰 발전이 없었다고 주장하기도 하였습니다. 즉 CAM과 Grad-CAM은 구현하기도 매우 쉽지만 성능도 매우 우수한 것으로 받아들일 수 있고, 
+visual task에서 다양하게 사용될 수 있는 범용성 높은 논문이라고 생각합니다. (논문들에서 네트워크의 성능을 CAM으로 보여주기도 합니다.)</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#review-of-paper" class="page__taxonomy-item" rel="tag">review of paper</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-11-22T00:00:00+09:00">November 22, 2020</time></p>
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/South-hw" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Nam Hyeon-Woo. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

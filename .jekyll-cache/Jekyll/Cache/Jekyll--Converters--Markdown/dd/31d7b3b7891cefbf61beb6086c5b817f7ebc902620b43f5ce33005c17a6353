@@ -1,0 +1,40 @@
+I"<h2 id="cam">CAM</h2>
+
+<h5 id="paper">Paper</h5>
+<p>Zhou, Bolei, et al. “Learning Deep Features for Discriminative Localization”, CVPR, 2016</p>
+
+<h5 id="proposition">Proposition</h5>
+<p>CAM (Class Activation Map)는 weakly-supervised object localizatoin입니다. Weakly-supervised learning이란 strong supervision이 
+아닌 weak supervision으로 네트워크를 학습시키는 것입니다. Segmentation과 같은 localization의 경우 annotation 비용이 classification task에 
+비해서 더 많이 든다는 것을 직관적으로 알 수 있습니다. 이 논문에서는 classification task를 통해서 object localization할 수 있는 것을 제안합니다. 
+또한 score에 기여한 features와 weights를 이용하여 MAP을 생성하므로 Explainable AI로도 생각할 수 있습니다.</p>
+
+<h5 id="method">Method</h5>
+<p><img src="/assets/imgs/cam.png" alt="" /></p>
+
+<p>위 그림처엄 네트워크가 “conv - GAP - classifier”인 경우에 해당 score가 나오도록 기여한 weights를 알 수 있습니다. GAP, Score는 다음 식으로 표현할 수 있습니다.
+$$
+F^k = \Sigma_{x,y} f_k(x,y)
+$$
+$$
+S_c = \underset{k}\Sigma w_k^c \underset{x,y}\Sigma f_k(x,y).
+$$
+논문에서는 두 식을 합성하여 논문에서는 CAM을 다음으로 표현합니다. 
+$$
+M_c (x,y) = \underset{k}\Sigma w_k^c f_k(x,y).
+$$</p>
+
+<h2 id="grad_cam">Grad_CAM</h2>
+
+<h5 id="paper-1">Paper</h5>
+<p>Selvaraju, Ramprasaath R., et al. “Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization”, ICCV, 2017</p>
+
+<h5 id="proposition-1">Proposition</h5>
+<p>Grad-CAM은 CAM의 generalization version 입니다. CAM은 네트워크 구조가 “conv - global pooling - classifier”에만 적용할 수 있지만 Grad-CAM
+은 다양한 네트워크 구조에 적용할 수 있습니다. 그 이유는 Grad-CAM은 Loss로부터 gradient를 계산하기 때문입니다. 논문에서는 Guided Grad-CAM도 소개하지만 
+Grad-CAM만 포스팅하겠습니다.</p>
+
+<h5 id="method-1">Method</h5>
+<p>CAM에서 $w_k^c$를 importan</p>
+
+:ET
